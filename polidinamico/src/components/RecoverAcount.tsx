@@ -20,7 +20,7 @@ const formSchema = z.object({
     message: "Username must be at least 2 characters.",
   }),
 });
-const RegisterAcount = () => {
+const RecoverAcount = () => {
   const navigate = useNavigate();
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -56,19 +56,19 @@ const RegisterAcount = () => {
               className="space-y-4  mb-6"
             >
               <div className="font-semibold mt-6 mb-6 text-lg">
-                Ingresa tu codigo de verificacion
+                Ingresa tu correo electronico
               </div>
               <FormField
                 control={form.control}
                 name="input"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Codigo de verificacion</FormLabel>
+                    <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="codigo..." {...field} />
+                      <Input placeholder="email..." {...field} />
                     </FormControl>
                     <FormDescription>
-                      Escribe tu codigo de verificacion
+                      Escribe tu correo electronico
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -97,4 +97,4 @@ const RegisterAcount = () => {
     </>
   );
 };
-export default RegisterAcount;
+export default RecoverAcount;

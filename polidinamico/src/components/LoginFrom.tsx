@@ -27,8 +27,8 @@ const formSchema = z.object({
 const LoginFrom = () => {
   const navigate = useNavigate();
 
-  const handleClickRegister = () => {
-    navigate("/registerStudent");
+  const handleRecoverPass = () => {
+    navigate("/Recover");
   };
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -45,7 +45,9 @@ const LoginFrom = () => {
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
-
+  const handleClickRegister = () => {
+    navigate("/register");
+  };
   return (
     <>
       <div className="flex flex-row lg:w-[900px] w-[300px] m-12 bg-slate-50 rounded-lg shadow-lg">
@@ -100,13 +102,17 @@ const LoginFrom = () => {
               >
                 Ingresar
               </Button>
-              <div className="mt-6 text-center">
-                <p className="text-gray-600 text-[13px]">
-                  ¿ No tienes Cuenta ?
-                </p>
-                <button 
-                onClick={handleClickRegister}
-                className="text-blue-600 font-semibold text-[14px]">
+              <div className="mt-6 text-center flex flex-col gap-2">
+                <button
+                  onClick={handleRecoverPass}
+                  className="text-gray-600 text-[13px] hover:text-gray-900"
+                >
+                  ¿ Olvidaste tu contraseña ?
+                </button>
+                <button
+                  onClick={handleClickRegister}
+                  className="text-blue-600 font-semibold text-[14px]"
+                >
                   Registrate
                 </button>
               </div>
