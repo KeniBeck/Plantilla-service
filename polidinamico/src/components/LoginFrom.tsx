@@ -16,9 +16,7 @@ import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 
 const formSchema = z.object({
-  email: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  email: z.string().email({ message: "email inavilido" }),
   pass: z.string().min(2, {
     message: "Please enter a valid email address.",
   }),
@@ -50,7 +48,7 @@ const LoginFrom = () => {
   };
   return (
     <>
-      <div className="flex flex-row lg:w-[900px] w-[300px] m-12 bg-slate-50 rounded-lg shadow-lg">
+      <div className="flex flex-row lg:w-[900px] w-[300px] m-12 bg-slate-50 rounded-lg shadow-lg shadow-slate-600">
         <div className="w-full hidden lg:block">
           <img
             className="rounded-lg w-full h-full"

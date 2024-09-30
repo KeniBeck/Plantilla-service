@@ -16,9 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
-  input: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  email: z.string().email({ message: "email inavalido" }),
 });
 const RecoverAcount = () => {
   const navigate = useNavigate();
@@ -26,7 +24,7 @@ const RecoverAcount = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      input: "",
+      email: "",
     },
   });
 
@@ -60,7 +58,7 @@ const RecoverAcount = () => {
               </div>
               <FormField
                 control={form.control}
-                name="input"
+                name="email"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Email</FormLabel>
@@ -82,7 +80,6 @@ const RecoverAcount = () => {
                 Ingresar
               </Button>
               <div className="mt-6 text-center">
-                <p className="text-gray-600 text-[13px]">¿ Ya tienes cuenta?</p>
                 <button
                   onClick={handleClickDown}
                   className="text-blue-600 font-semibold text-[14px]"
