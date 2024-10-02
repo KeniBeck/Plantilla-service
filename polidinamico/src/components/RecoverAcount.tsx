@@ -35,7 +35,7 @@ const RecoverAcount = () => {
     console.log(values);
   }
   const handleClickDown = () => {
-    navigate("/");
+    navigate("/login");
   };
   return (
     <>
@@ -43,7 +43,7 @@ const RecoverAcount = () => {
         <div className="w-full hidden lg:block">
           <img
             className="rounded-lg w-full h-full"
-            src="https://politecnicojic.edu.co/images/fotos/2023/comunicados.jpg"
+            src="https://www.politecnicojic.edu.co/images/fotos/2019/convocatoria-bienestar-institucional-centros-regionales.jpg"
             alt="login"
           />
         </div>

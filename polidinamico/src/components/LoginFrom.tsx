@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { IoArrowBackCircle } from "react-icons/io5";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -46,22 +47,34 @@ const LoginFrom = () => {
   const handleClickRegister = () => {
     navigate("/register");
   };
+  const handleClickDown = () => {
+    navigate("/");
+  };
   return (
     <>
       <div className="flex flex-row lg:w-[900px] w-[300px] m-12 bg-slate-50 rounded-lg shadow-lg shadow-slate-600">
         <div className="w-full hidden lg:block">
           <img
-            className="rounded-lg w-full h-full"
-            src="https://politecnicojic.edu.co/images/fotos/2023/comunicados.jpg"
+            className="rounded-l-lg w-full h-full"
+            src="https://www.politecnicojic.edu.co/images/fotos/2019/convocatoria-bienestar-institucional-centros-regionales.jpg"
             alt="login"
           />
         </div>
-        <div className="w-full  h-full flex flex-col justify-center items-center rounded-lg m-2">
-          <div className="font-semibold mt-6 mb-6 text-lg">Iniciar Secion</div>
+        <div className="w-full h-full flex flex-col justify-center items-center rounded-lg m-2">
+          <div className="flex justify-end w-full text-white ">
+            <button
+              onClick={handleClickDown}
+              className="flex flex-row justify-center items-center gap-2 rounded-full bg-emerald-500 hover:bg-emerald-600 p-2 shadow-lg shadow-slate-500"
+            >
+              <IoArrowBackCircle className="h-[20px] w-[20px]" />
+              volver
+            </button>
+          </div>
+          <div className="font-semibold mt-3 mb-3 text-lg">Iniciar Secion</div>
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-4  mb-6"
+              className="space-y-4 pl-4 pr-4 mb-6 w-full "
             >
               <FormField
                 control={form.control}
