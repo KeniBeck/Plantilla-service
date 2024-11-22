@@ -3,6 +3,7 @@ import Home from "./view/Home";
 import Recover from "./view/Recover";
 import Register from "./view/Register";
 import LoginView from "./view/LoginView";
+import ViewPrincipalStuden from "./view/ViewPrincipal";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/login" element={<LoginView />} />
         <Route path="/recover" element={<Recover />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/principalStudent" element={<ViewPrincipalStuden />} />
       </Routes>
     </div>
   );

@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { resgisterUser } from "@/services/registeruser";
 
 const formSchema = z.object({
   email: z.string().email({ message: "email invalido" }),
@@ -39,9 +40,10 @@ const RegisterStudent = () => {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    const { email, pass, name, lastname } = values;
+    resgisterUser(email, pass, name, lastname).then((response) => {
+      console.log(response);
+    });
   }
   const handleClickDown = () => {
     navigate("/login");
@@ -118,7 +120,7 @@ const RegisterStudent = () => {
                   <FormItem>
                     <FormLabel>Contraseña</FormLabel>
                     <FormControl>
-                      <Input placeholder="contraseña..." {...field} />
+                      <Input type="password" placeholder="contraseña..." {...field} />
                     </FormControl>
                     <FormDescription>Escribe tu contraseña</FormDescription>
                     <FormMessage />

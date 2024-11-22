@@ -2,7 +2,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { IoArrowBackCircle } from "react-icons/io5";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -15,6 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
+import { login } from "@/services/loginacess";
 
 const formSchema = z.object({
   email: z.string().email({ message: "email inavilido" }),
@@ -40,9 +40,13 @@ const LoginFrom = () => {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    const { email, pass } = values;
+    login(email, pass).then((response) => {
+      console.log(response);
+      if (response.status === 200) {
+        navigate("/principalStudent");
+      }
+    });
   }
   const handleClickRegister = () => {
     navigate("/register");
