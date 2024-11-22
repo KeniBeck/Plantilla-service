@@ -3,7 +3,7 @@ import Home from "./view/Home";
 import Recover from "./view/Recover";
 import Register from "./view/Register";
 import LoginView from "./view/LoginView";
-import ViewPrincipalStuden from "./view/ViewPrincipal";
+import ViewPrincipalStuden from "./view/ViewPrincipalStudent";
 
 function App() {
   return (

@@ -15,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 import { login } from "@/services/loginacess";
+import Swal from "sweetalert2";
 
 const formSchema = z.object({
   email: z.string().email({ message: "email inavilido" }),
@@ -42,8 +43,13 @@ const LoginFrom = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     const { email, pass } = values;
     login(email, pass).then((response) => {
-      console.log(response);
-      if (response.status === 200) {
+      console.log(response)
+      if (response.statusCode) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: response.message});
+      }else{
         navigate("/principalStudent");
       }
     });
